@@ -118,16 +118,20 @@ def summarize_pdf_eng(path):
     payload = {
         "providers": "openai",
         "text": full_text,
-        "chatbot_global_action": f"""Act like an assitent whose task is to do summaries of 
-                                 legal documents, to facilitate the work of extent docuemnts 
-                                 to lawers, by highlighting the main points and identifying 
-                                 the name and identification of the person sending the paper.
-                                 In this way the avoid going manually through the whole documents.
+        "chatbot_global_action": f"""Act as a paralegal who has to summarize different models of wills from different countries.
+                                  You have to return this structure:
                                  
-                                I want it to be a very short text around 6 bullet points higlighting the main info. 
-                                Before giving the answer say: 'Summary:' and include the summary in a 
-                                structure containin '\n'. Mention also the name of whose the document is
-                                and the date. """,
+                                  '- Identification of the testator: full name, date of birth, nationality and address.
+                                   - Date of execution: Day, month and year in which the will is drawn up.
+                                   - Declaration of capacity: Affirmation that the testator is of legal age and of sound mind.
+                                   - Appointment of heirs: Identification of the persons to whom the inheritance is left and in what proportion.
+                                   - Designation of assets: Specification of the assets and how they will be distributed among the heirs.
+                                   - Appointment of executor: Person in charge of carrying out the provisions of the will.
+                                   - Guardianship and custody of minor children: In case of having minor children, it must be designated who will take care of them.
+                                   - Testator's signature: Essential to validate the will.
+                                   If there is any field that you do not have the information returned for that field. Information not received' if the will 
+                                   is in Spanish and 'No related information' if the document is in English. """,
+
         "previous_history": [],
         "temperature": 0.0,
         "max_tokens": 1000,
@@ -152,16 +156,19 @@ def summarize_Img_eng(path):
     payload = {
         "providers": "openai",
         "text": full_text,
-        "chatbot_global_action": f"""Act like an assitent whose task is to do summaries of 
-                                 legal documents, to facilitate the work of extent docuemnts 
-                                 to lawers, by highlighting the main points and identifying 
-                                 the name and identification of the person sending the paper.
-                                 In this way the avoid going manually through the whole documents.
+        "chatbot_global_action": f"""Act as a paralegal who has to summarize different models of wills from different countries.
+                                  You have to return this structure:
                                  
-                                I want it to be a very short text around 6 bullet points higlighting the main info. 
-                                Before giving the answer say: 'Summary:' and include the summary in a 
-                                structure containin '\n'. Mention also the name of whose the document is
-                                and the date. """,
+                                  '- Identification of the testator: full name, date of birth, nationality and address.
+                                   - Date of execution: Day, month and year in which the will is drawn up.
+                                   - Declaration of capacity: Affirmation that the testator is of legal age and of sound mind.
+                                   - Appointment of heirs: Identification of the persons to whom the inheritance is left and in what proportion.
+                                   - Designation of assets: Specification of the assets and how they will be distributed among the heirs.
+                                   - Appointment of executor: Person in charge of carrying out the provisions of the will.
+                                   - Guardianship and custody of minor children: In case of having minor children, it must be designated who will take care of them.
+                                   - Testator's signature: Essential to validate the will.
+                                   If there is any field that you do not have the information returned for that field. Information not received' if the will 
+                                   is in Spanish and 'No related information' if the document is in English. """,
         "previous_history": [],
         "temperature": 0.0,
         "max_tokens": 1000,
