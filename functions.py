@@ -103,3 +103,71 @@ def summarize_Img(path):
 
     result = json.loads(response.text)
     return result['openai']['generated_text']
+
+#####################################################################################
+def summarize_pdf_eng(path): 
+    '''It summarizes the content found in the image given.'''
+    
+    # Extract the text from the given file
+    full_text = read_pdf(path)
+       
+    # Use a chatbot with an API key
+    headers = {"Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYzk2Y2QzNzgtZDhlZS00MzkxLWJmYmMtNzg1N2I0NWJjMDYyIiwidHlwZSI6ImFwaV90b2tlbiJ9.BIwMWdaPNAcVM6yhNbLMD2SDbmTxfis_Emd6HUYfVME"}
+
+    url = "https://api.edenai.run/v2/text/chat"
+    payload = {
+        "providers": "openai",
+        "text": full_text,
+        "chatbot_global_action": f"""Act like an assitent whose task is to do summaries of 
+                                 legal documents, to facilitate the work of extent docuemnts 
+                                 to lawers, by highlighting the main points and identifying 
+                                 the name and identification of the person sending the paper.
+                                 In this way the avoid going manually through the whole documents.
+                                 
+                                I want it to be a very short text around 6 bullet points higlighting the main info. 
+                                Before giving the answer say: 'Summary:' and include the summary in a 
+                                structure containin '\n'. Mention also the name of whose the document is
+                                and the date. """,
+        "previous_history": [],
+        "temperature": 0.0,
+        "max_tokens": 1000,
+    }
+
+    response = requests.post(url, json=payload, headers=headers)
+
+    result = json.loads(response.text)
+    return result['openai']['generated_text']
+
+
+def summarize_Img_eng(path): 
+    '''It summarizes the content found in the image given.'''
+    
+    # Extract the text from the given image
+    full_text = read_Img(path)
+       
+    # Use a chatbot with an API key
+    headers = {"Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYzk2Y2QzNzgtZDhlZS00MzkxLWJmYmMtNzg1N2I0NWJjMDYyIiwidHlwZSI6ImFwaV90b2tlbiJ9.BIwMWdaPNAcVM6yhNbLMD2SDbmTxfis_Emd6HUYfVME"}
+
+    url = "https://api.edenai.run/v2/text/chat"
+    payload = {
+        "providers": "openai",
+        "text": full_text,
+        "chatbot_global_action": f"""Act like an assitent whose task is to do summaries of 
+                                 legal documents, to facilitate the work of extent docuemnts 
+                                 to lawers, by highlighting the main points and identifying 
+                                 the name and identification of the person sending the paper.
+                                 In this way the avoid going manually through the whole documents.
+                                 
+                                I want it to be a very short text around 6 bullet points higlighting the main info. 
+                                Before giving the answer say: 'Summary:' and include the summary in a 
+                                structure containin '\n'. Mention also the name of whose the document is
+                                and the date. """,
+        "previous_history": [],
+        "temperature": 0.0,
+        "max_tokens": 1000,
+    }
+
+    response = requests.post(url, json=payload, headers=headers)
+
+    result = json.loads(response.text)
+    return result['openai']['generated_text']
