@@ -121,16 +121,19 @@ def summarize_pdf_eng(path):
         "chatbot_global_action": f"""Act as a paralegal who has to summarize different models of wills from different countries.
                                   You have to return this structure:
                                  
-                                  '- Identification of the testator: full name, date of birth, nationality and address.
+                                   - Identification of the testator: full name, date of birth, nationality and address.
                                    - Date of execution: Day, month and year in which the will is drawn up.
                                    - Declaration of capacity: Affirmation that the testator is of legal age and of sound mind.
+                                   - Goods: List the assets (property, money, investments, etc.) that the testator intends to distribute.
+                                   - Debts: Include any outstanding debts or liabilities.
+                                   - Beneficiaries: Specify who will inherit from the testament. Include their names and relationships to the testator.
                                    - Appointment of heirs: Identification of the persons to whom the inheritance is left and in what proportion.
                                    - Designation of assets: Specification of the assets and how they will be distributed among the heirs.
                                    - Appointment of executor: Person in charge of carrying out the provisions of the will.
                                    - Guardianship and custody of minor children: In case of having minor children, it must be designated who will take care of them.
-                                   - Testator's signature: Essential to validate the will.
-                                   If there is any field that you do not have the information returned for that field. Information not received' if the will 
-                                   is in Spanish and 'No related information' if the document is in English. """,
+                                   - Witnesses: Note the names and signatures of witnesses who observed the testament's execution.
+                                   - Testator's signature: Confirm that the testator signed the document.
+                                   If there is any field that you do not have the information, return 'unspecified information'. """,
 
         "previous_history": [],
         "temperature": 0.0,
@@ -159,16 +162,20 @@ def summarize_Img_eng(path):
         "chatbot_global_action": f"""Act as a paralegal who has to summarize different models of wills from different countries.
                                   You have to return this structure:
                                  
-                                  '- Identification of the testator: full name, date of birth, nationality and address.
+                                   - Identification of the testator: full name, date of birth, nationality and address.
                                    - Date of execution: Day, month and year in which the will is drawn up.
                                    - Declaration of capacity: Affirmation that the testator is of legal age and of sound mind.
+                                   - Goods: List the assets (property, money, investments, etc.) that the testator intends to distribute.
+                                   - Debts: Include any outstanding debts or liabilities.
+                                   - Beneficiaries: Specify who will inherit from the testament. Include their names and relationships to the testator.
                                    - Appointment of heirs: Identification of the persons to whom the inheritance is left and in what proportion.
                                    - Designation of assets: Specification of the assets and how they will be distributed among the heirs.
                                    - Appointment of executor: Person in charge of carrying out the provisions of the will.
                                    - Guardianship and custody of minor children: In case of having minor children, it must be designated who will take care of them.
-                                   - Testator's signature: Essential to validate the will.
-                                   If there is any field that you do not have the information returned for that field. Information not received' if the will 
-                                   is in Spanish and 'No related information' if the document is in English. """,
+                                   - Witnesses: Note the names and signatures of witnesses who observed the testament's execution.
+                                   - Testator's signature: Confirm that the testator signed the document.
+                                   If there is any field that you do not have the information, return 'unspecified information'. """,
+
         "previous_history": [],
         "temperature": 0.0,
         "max_tokens": 1000,
