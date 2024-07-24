@@ -3,9 +3,7 @@
 import json
 import requests
 import PyPDF2
-#import pytesseract
 import easyocr
-import gradio as gr
 import os
 
 #########################################################################
